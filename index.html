@@ -1,2 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>engrish</title>
+  </head>
+  <body>
 
-acrosticgenerator.github.io
+    <script> let jsonFile;
+             fetch("words.json")
+                  .then(res => res.json())
+                  .then(data => jsonFile = JSON.parse(data));
+             console.log(jsonFile[15])
+    </script>
+    
+  </body>
+</html>
