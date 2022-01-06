@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>engrish</title>
-  </head>
-  <body>
+<body>
+    <h3>
+    	Data extracted from External JSON file.
+    </h3>
+    <div id='showData'></div>
+</body>
 
-    <script> let jsonFile;
-             fetch("words.json")
-                  .then(res => res.json())
-                  .then(data => jsonFile = JSON.parse(data));
-             console.log(jsonFile[15])
-    </script>
-    
-  </body>
+<script>
+    // Create XMLHttpRequest object.
+    var oXHR = new XMLHttpRequest();
+
+    // Initiate request.
+    oXHR.onreadystatechange = reportStatus;
+    oXHR.open("GET", "../words.json", true);  // get json file.
+    oXHR.send();
+
+    function reportStatus() {
+        if (oXHR.readyState == 4) {		// Check if request is complete.
+            Write data to a DIV element.
+            document.getElementById('showData').innerHTML = this.responseText;
+        }
+    }
+</script>
 </html>
